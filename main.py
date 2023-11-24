@@ -1,13 +1,12 @@
 def main():
     path = "books/frankenstein.txt"
     text = read_book(path)
-    #print(text)
     count = word_count(text)
-    print(count)
     char = char_count(text)
-    print(char)
-
-
+    report_print = report(path, count, char)
+    print(report_print)
+    
+    
 def read_book(path):
     with open(path) as f:
         return f.read()
@@ -28,7 +27,12 @@ def char_count(text):
             count[char] = 1
     return count
 
-
-
+def report(path, count, char):
+    print(f"--- Begin report of {path} ---")
+    print(f"\nThe text contains {count} words \n")
+    for c in char:
+        if c.isalpha():
+            print(f"The '{c}' character was found {char[c]} times")
+    return "\n--- End of report ---"
 
 main()
