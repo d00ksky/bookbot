@@ -1,6 +1,7 @@
 def main():
     path = "books/frankenstein.txt"
     text = read_book(path)
+    #print(text)
     count = word_count(text)
     char = char_count(text)
     report_print = report(path, count, char)
